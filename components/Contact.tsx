@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { useRef, useState, FormEvent } from "react";
 import emailjs from "@emailjs/browser";
+import { motion } from "framer-motion";
 
 export default function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -136,30 +137,40 @@ export default function Contact() {
             />
           </div>
 
-          <button
+          <motion.button
             type="submit"
             disabled={loading}
-            className="w-full py-4 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 font-bold text-white hover:opacity-90 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="w-full py-4 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 backdrop-blur-md font-bold text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 relative overflow-hidden group shadow-lg shadow-purple-500/10"
           >
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
             {loading ? (
               <>
-                <Loader2 className="w-5 h-5 animate-spin" />
-                Sending...
+                <Loader2 className="w-5 h-5 animate-spin relative z-10" />
+                <span className="relative z-10">Sending...</span>
               </>
             ) : success ? (
               <>
-                <CheckCircle2 className="w-5 h-5" />
-                Message Sent!
+                <CheckCircle2 className="w-5 h-5 text-green-400 relative z-10" />
+                <span className="relative z-10 text-green-400">
+                  Message Sent!
+                </span>
               </>
             ) : error ? (
               <>
-                <XCircle className="w-5 h-5" />
-                Failed to Send
+                <XCircle className="w-5 h-5 text-red-400 relative z-10" />
+                <span className="relative z-10 text-red-400">
+                  Failed to Send
+                </span>
               </>
             ) : (
-              "Send Message"
+              <span className="relative z-10 flex items-center gap-2">
+                Send Message <Mail className="w-4 h-4" />
+              </span>
             )}
-          </button>
+          </motion.button>
 
           {success && (
             <p className="text-green-400 text-sm text-center mt-2">
