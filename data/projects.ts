@@ -15,26 +15,26 @@ export const projects: Project[] = [
     description:
       "A premium personal portfolio website showcasing my skills and projects. Built with Next.js, Tailwind CSS, and Framer Motion for smooth animations and a glassmorphism aesthetic.",
     tags: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
-    link: "https://anshul-shakya.com",
-    github: "https://github.com/anshulshakya/portfolio",
+    link: "https://anshulll.in",
+    github: "https://github.com/Anshul563/my-portfolio-main",
   },
   {
     id: "2",
-    title: "E-Commerce Dashboard",
+    title: "Orbit",
     description:
-      "A comprehensive dashboard for managing online stores, featuring real-time data visualization, inventory management, and order tracking.",
-    tags: ["React", "Node.js", "MongoDB", "Express"],
+      "College creates a unique environment where thousands of talented people live in the same place, yet we still pay strangers online for help. I wanted to build a digital ecosystem that unlocks the latent value on campus.",
+    tags: ["React", "Next.js", "Tailwind CSS", "PostgreSQL"],
     // Add real links when available
-    link: "#",
-    github: "#",
+    link: "https://orbit-six-rosy.vercel.app/",
+    github: "https://github.com/Anshul563/orbit",
   },
   {
     id: "3",
-    title: "Flutter Chat App",
+    title: "Donezo - Team Task & Sprint Manager",
     description:
-      "A real-time messaging application focused on privacy and speed. Supports group chats, media sharing, and push notifications.",
-    tags: ["Flutter", "Firebase", "Dart"],
-    link: "#",
-    github: "#",
+      "Donezo, a sprint management tool designed for high-performance teams. Beyond just a task list I wanted to solve the complexity of real-time collaboration and secure data isolation.",
+    tags: ["Next JS", "Tailwind CSS", "PostgreSQL", "TypeScript"],
+    link: "https://donezo-app-theta.vercel.app/",
+    github: "https://github.com/Anshul563/donezo-app",
   },
 ];

@@ -9,6 +9,7 @@ import {
   Loader2,
   CheckCircle2,
   XCircle,
+  Instagram,
 } from "lucide-react";
 import { useRef, useState, FormEvent } from "react";
 import emailjs from "@emailjs/browser";
@@ -66,7 +67,7 @@ export default function Contact() {
           <Mail className="w-6 h-6 text-gray-300 group-hover:text-white" />
         </a>
         <a
-          href="https://linkedin.com"
+          href="https://linkedin.com/in/anshulshakya-bca84"
           target="_blank"
           className="p-4 rounded-full bg-white/5 hover:bg-white/10 transition-colors group backdrop-blur-xs"
         >
@@ -78,6 +79,13 @@ export default function Contact() {
           className="p-4 rounded-full bg-white/5 hover:bg-white/10 transition-colors group backdrop-blur-xs"
         >
           <Github className="w-6 h-6 text-gray-300 group-hover:text-white" />
+        </a>
+        <a
+          href="https://instagram.com/anshulll_84"
+          target="_blank"
+          className="p-4 rounded-full bg-white/5 hover:bg-white/10 transition-colors group backdrop-blur-xs"
+        >
+          <Instagram className="w-6 h-6 text-gray-300 group-hover:text-white" />
         </a>
         {/* Add more social links if needed */}
       </div>
