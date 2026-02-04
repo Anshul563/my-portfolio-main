@@ -4,6 +4,7 @@ import "./globals.css";
 import { Background } from "@/components/Background";
 import { Clarity } from "@/components/Clarity";
 import { SmoothScroll } from "@/components/SmoothScroll";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +35,7 @@ export default function RootLayout({
         <SmoothScroll />
         <Clarity />
         <Background />
+        <Analytics />
         {children}
       </body>
     </html>
