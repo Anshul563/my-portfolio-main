@@ -27,7 +27,7 @@ export default function Contact() {
           <Linkedin className="w-6 h-6 text-gray-300 group-hover:text-white" />
         </a>
         <a
-          href="https://github.com/anshulshakya"
+          href="https://github.com/Anshul563"
           target="_blank"
           className="p-4 rounded-full bg-white/5 hover:bg-white/10 transition-colors group"
         >

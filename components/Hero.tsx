@@ -15,7 +15,7 @@ export default function Hero() {
         <div className="relative w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden border-4 border-white/10 shadow-2xl">
           {/* Placeholder for user image if they have one, otherwise a stylized avatar */}
           <div className="w-full h-full bg-gradient-to-tr from-blue-500 to-purple-600 flex items-center justify-center text-4xl">
-            AS
+            <Image src="/profile.png" alt="Profile" width={128} height={128} />
           </div>
         </div>
 
