@@ -10,7 +10,7 @@ export default function Home() {
       <Hero />
       <About />
       <Skills />
-      <Projects />
+      <Projects limit={3} />
       <Contact />
     </main>
   );

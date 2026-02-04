@@ -2,18 +2,24 @@
 
 import { projects } from "@/data/projects";
 import GlassCard from "./ui/GlassCard";
-import { Github, ExternalLink } from "lucide-react";
+import { Github, ExternalLink, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
-export default function Projects() {
+interface ProjectsProps {
+  limit?: number;
+}
+
+export default function Projects({ limit }: ProjectsProps) {
+  const displayedProjects = limit ? projects.slice(0, limit) : projects;
+
   return (
     <section id="projects" className="py-20 px-4 max-w-6xl mx-auto">
       <h2 className="text-4xl font-bold mb-16 text-center">
-        Featured Projects
+        {limit ? "Featured Projects" : "All Projects"}
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project) => (
+        {displayedProjects.map((project) => (
           <GlassCard
             key={project.id}
             className="flex flex-col h-full backdrop-blur-xs"
@@ -67,6 +73,18 @@ export default function Projects() {
           </GlassCard>
         ))}
       </div>
+
+      {limit && (
+        <div className="mt-12 text-center">
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-all font-medium group"
+          >
+            See All Projects
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
+      )}
     </section>
   );
 }
