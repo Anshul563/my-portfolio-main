@@ -16,7 +16,7 @@ export default function Projects() {
         {projects.map((project) => (
           <GlassCard
             key={project.id}
-            className="flex flex-col h-full"
+            className="flex flex-col h-full backdrop-blur-xs"
             hoverEffect={true}
           >
             {/* Image Placeholder - In a real app we'd use project.image */}

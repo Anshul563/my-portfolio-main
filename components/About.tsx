@@ -7,7 +7,7 @@ export default function About() {
     <section id="about" className="py-20 px-4 max-w-4xl mx-auto">
       <h2 className="text-4xl font-bold mb-12 text-center">About Me</h2>
 
-      <GlassCard className="text-lg text-gray-300 leading-relaxed space-y-4">
+      <GlassCard className="text-lg text-gray-300 leading-relaxed space-y-4 backdrop-blur-xs">
         <p>
           I am Anshul Shakya, a passionate BCA student at GLA University,
           Mathura (2024-2027). My journey in technology is driven by a curiosity

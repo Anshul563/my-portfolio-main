@@ -15,28 +15,28 @@ export default function Contact() {
       <div className="flex justify-center gap-6 mb-16">
         <a
           href="mailto:anshul@example.com"
-          className="p-4 rounded-full bg-white/5 hover:bg-white/10 transition-colors group"
+          className="p-4 rounded-full bg-white/5 hover:bg-white/10 transition-colors group backdrop-blur-xs"
         >
           <Mail className="w-6 h-6 text-gray-300 group-hover:text-white" />
         </a>
         <a
           href="https://linkedin.com"
           target="_blank"
-          className="p-4 rounded-full bg-white/5 hover:bg-white/10 transition-colors group"
+          className="p-4 rounded-full bg-white/5 hover:bg-white/10 transition-colors group backdrop-blur-xs"
         >
           <Linkedin className="w-6 h-6 text-gray-300 group-hover:text-white" />
         </a>
         <a
           href="https://github.com/Anshul563"
           target="_blank"
-          className="p-4 rounded-full bg-white/5 hover:bg-white/10 transition-colors group"
+          className="p-4 rounded-full bg-white/5 hover:bg-white/10 transition-colors group backdrop-blur-xs"
         >
           <Github className="w-6 h-6 text-gray-300 group-hover:text-white" />
         </a>
         {/* Add more social links if needed */}
       </div>
 
-      <GlassCard className="p-8 max-w-2xl mx-auto text-left">
+      <GlassCard className="p-8 max-w-2xl mx-auto text-left backdrop-blur-xs">
         <form className="flex flex-col gap-6">
           <div>
             <label

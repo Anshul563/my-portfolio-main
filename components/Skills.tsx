@@ -14,7 +14,7 @@ export default function Skills() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {categories.map((category, index) => (
-          <GlassCard key={category} className="p-6" hoverEffect={true}>
+          <GlassCard key={category} className="p-6 backdrop-blur-xs" hoverEffect={true}>
             <h3 className="text-xl font-semibold mb-6 border-b border-white/10 pb-2 text-blue-200">
               {category}
             </h3>
