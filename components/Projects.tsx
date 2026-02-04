@@ -33,7 +33,7 @@ export default function Projects({ limit }: ProjectsProps) {
 
             <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
 
-            <p className="text-gray-400 mb-6 flex-grow leading-relaxed">
+            <p className="text-gray-400 mb-6 grow leading-relaxed">
               {project.description}
             </p>
 
