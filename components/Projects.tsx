@@ -20,10 +20,10 @@ export default function Projects() {
             hoverEffect={true}
           >
             {/* Image Placeholder - In a real app we'd use project.image */}
-            <div className="h-48 w-full bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg mb-6 flex items-center justify-center overflow-hidden relative group">
+            {/* <div className="h-48 w-full bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg mb-6 flex items-center justify-center overflow-hidden relative group">
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
               <span className="text-4xl">🚀</span>
-            </div>
+            </div> */}
 
             <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
 
