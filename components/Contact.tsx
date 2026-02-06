@@ -5,7 +5,6 @@ import {
   Mail,
   Linkedin,
   Github,
-  Twitter,
   Loader2,
   CheckCircle2,
   XCircle,
@@ -38,7 +37,7 @@ export default function Contact() {
         "W1NTZLqaRXojja0CN",
       )
       .then(
-        (result) => {
+        () => {
           setSuccess(true);
           setLoading(false);
           formRef.current?.reset();
@@ -182,7 +181,7 @@ export default function Contact() {
 
           {success && (
             <p className="text-green-400 text-sm text-center mt-2">
-              Thanks for reaching out! I'll get back to you soon.
+              Thanks for reaching out! I&apos;ll get back to you soon.
             </p>
           )}
           {error && (

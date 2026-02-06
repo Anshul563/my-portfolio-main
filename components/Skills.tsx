@@ -2,7 +2,6 @@
 
 import { skills } from "@/data/skills";
 import GlassCard from "./ui/GlassCard";
-import { motion } from "framer-motion";
 
 export default function Skills() {
   // Group skills by category
@@ -13,8 +12,12 @@ export default function Skills() {
       <h2 className="text-4xl font-bold mb-16 text-center">My Skills</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {categories.map((category, index) => (
-          <GlassCard key={category} className="p-6 backdrop-blur-xs" hoverEffect={true}>
+        {categories.map((category) => (
+          <GlassCard
+            key={category}
+            className="p-6 backdrop-blur-xs"
+            hoverEffect={true}
+          >
             <h3 className="text-xl font-semibold mb-6 border-b border-white/10 pb-2 text-blue-200">
               {category}
             </h3>

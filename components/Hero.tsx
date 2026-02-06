@@ -20,7 +20,7 @@ export default function Hero() {
         </div>
 
         <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
-          Hi, I'm <span className="text-gradient">Anshul Shakya</span>
+          Hi, I&apos;m <span className="text-gradient">Anshul Shakya</span>
         </h1>
 
         <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">

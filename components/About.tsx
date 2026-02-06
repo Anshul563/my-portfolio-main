@@ -26,8 +26,8 @@ export default function About() {
         <p>
           I love exploring new frameworks, optimizing performance, and creating
           user interfaces that are not only functional but also visually
-          stunning. When I'm not coding, I'm likely learning about the latest
-          tech trends or working on a new side project.
+          stunning. When I&apos;m not coding, I&apos;m likely learning about the
+          latest tech trends or working on a new side project.
         </p>
       </GlassCard>
     </section>

@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils"; // We need to create lib/utils or just use string concat if simpler. I'll stick to a simple implementation for now to avoid extra files if not strictly needed, but tailwind-merge is safer.
 
 // Let's create a simple utility here since creating a full lib/utils might be overkill if we don't have it yet,
 // BUT I installed `clsx` and `tailwind-merge` so I should probably use them.
