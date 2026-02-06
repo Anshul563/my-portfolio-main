@@ -2,11 +2,6 @@
 
 import { motion } from "framer-motion";
 
-// Let's create a simple utility here since creating a full lib/utils might be overkill if we don't have it yet,
-// BUT I installed `clsx` and `tailwind-merge` so I should probably use them.
-// I'll define the helper inside or assume I can create the util file next.
-// Actually, standard practice is to have a util. Let me create the component assuming I will create the util file in a moment.
-
 type GlassCardProps = {
   children: React.ReactNode;
   className?: string;
