@@ -32,13 +32,13 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="#projects"
-            className="px-8 py-3 rounded-full bg-white text-black font-medium hover:bg-gray-200 transition-colors"
+            className="px-8 py-3 rounded-full bg-linear-to-r from-blue-500 to-purple-600 text-white font-medium hover:scale-105 hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 shadow-md shadow-purple-500/30"
           >
             View Work
           </a>
           <a
             href="#contact"
-            className="px-8 py-3 rounded-full border border-white/20 hover:bg-white/10 transition-colors backdrop-blur-sm"
+            className="px-8 py-3 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-white font-medium hover:bg-white/10 hover:border-white/20 hover:scale-105 transition-all duration-300"
           >
             Contact Me
           </a>
