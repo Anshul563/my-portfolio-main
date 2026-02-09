@@ -29,4 +29,5 @@ export const skills: Skill[] = [
   { name: "Firebase", category: "Database" },
   { name: "Git", category: "Tools" },
   { name: "VS Code", category: "Tools" },
+  { name: "Framer Motion", category: "Tools" },
 ];
