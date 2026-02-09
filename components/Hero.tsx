@@ -6,39 +6,57 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <section className="min-h-screen flex flex-col justify-center items-center text-center px-4 relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-neon-blue/20 rounded-full blur-[120px] -z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-neon-purple/20 rounded-full blur-[80px] -z-10 mix-blend-screen" />
+
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="z-10"
+        className="z-10 flex flex-col items-center"
       >
-        <div className="relative w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden border-4 border-white/10 shadow-2xl">
-          {/* Placeholder for user image if they have one, otherwise a stylized avatar */}
-          <div className="w-full h-full bg-linear-to-tr from-blue-500 to-purple-600 flex items-center justify-center text-4xl">
-            <Image src="/profile.png" alt="Profile" width={128} height={128} />
+        <div className="relative w-40 h-40 mx-auto mb-8 group">
+          <div className="absolute -inset-1 bg-gradient-to-br from-neon-blue to-neon-purple rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+          <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-white/20 shadow-2xl">
+            <div className="w-full h-full bg-linear-to-tr from-gray-900 to-gray-800 flex items-center justify-center text-4xl">
+              <Image
+                src="/profile.png"
+                alt="Profile"
+                width={160}
+                height={160}
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
 
         <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
-          Hi, I&apos;m <span className="text-gradient">Anshul Shakya</span>
+          Hi, I&apos;m{" "}
+          <span className="text-gradient drop-shadow-[0_0_15px_rgba(188,19,254,0.5)]">
+            Anshul Shakya
+          </span>
         </h1>
 
-        <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+        <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
           Full Stack Developer & BCA Student.
           <br />
-          Crafting digital experiences with code and creativity.
+          Crafting{" "}
+          <span className="text-neon-blue font-medium">
+            digital experiences
+          </span>{" "}
+          with code and creativity.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-6 justify-center">
           <a
             href="#projects"
-            className="px-8 py-3 rounded-full bg-linear-to-r from-blue-500 to-purple-600 text-white font-medium hover:scale-105 hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 shadow-md shadow-purple-500/30"
+            className="px-8 py-3.5 rounded-full bg-neon-blue/10 border border-neon-blue/50 text-neon-blue font-medium hover:bg-neon-blue/20 hover:shadow-[0_0_20px_rgba(0,243,255,0.4)] transition-all duration-300 backdrop-blur-sm"
           >
             View Work
           </a>
           <a
             href="#contact"
-            className="px-8 py-3 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-white font-medium hover:bg-white/10 hover:border-white/20 hover:scale-105 transition-all duration-300"
+            className="px-8 py-3.5 rounded-full bg-neon-purple/10 border border-neon-purple/50 text-neon-purple font-medium hover:bg-neon-purple/20 hover:shadow-[0_0_20px_rgba(188,19,254,0.4)] transition-all duration-300 backdrop-blur-sm"
           >
             Contact Me
           </a>
