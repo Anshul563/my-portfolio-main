@@ -24,7 +24,6 @@ export const projects: Project[] = [
     description:
       "College creates a unique environment where thousands of talented people live in the same place, yet we still pay strangers online for help. I wanted to build a digital ecosystem that unlocks the latent value on campus.",
     tags: ["React", "Next.js", "Tailwind CSS", "PostgreSQL"],
-    // Add real links when available
     link: "https://orbit-six-rosy.vercel.app/",
     github: "https://github.com/Anshul563/orbit",
   },
