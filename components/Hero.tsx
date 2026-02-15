@@ -16,7 +16,7 @@ export default function Hero() {
         className="z-10 flex flex-col items-center"
       >
         <div className="relative w-40 h-40 mx-auto mb-8 group">
-          <div className="absolute -inset-1 bg-gradient-to-br from-neon-blue to-neon-purple rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+          <div className="absolute -inset-1 bg-linear-to-br from-neon-blue to-neon-purple rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
           <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-white/20 shadow-2xl">
             <div className="w-full h-full bg-linear-to-tr from-gray-900 to-gray-800 flex items-center justify-center text-4xl">
               <Image

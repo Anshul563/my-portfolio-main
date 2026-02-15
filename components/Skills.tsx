@@ -4,7 +4,6 @@ import { skills } from "@/data/skills";
 import GlassCard from "./ui/GlassCard";
 
 export default function Skills() {
-  // Group skills by category
   const categories = Array.from(new Set(skills.map((s) => s.category)));
 
   return (
