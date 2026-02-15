@@ -30,7 +30,7 @@ export default function Projects({ limit }: ProjectsProps) {
             className="flex flex-col h-full relative group overflow-hidden"
             hoverEffect={true}
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-neon-blue/5 to-neon-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-linear-to-br from-neon-blue/5 to-neon-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
             <h3 className="text-2xl font-bold mb-3 group-hover:text-neon-blue transition-colors relative z-10">
               {project.title}
