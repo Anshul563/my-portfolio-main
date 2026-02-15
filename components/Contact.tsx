@@ -28,7 +28,6 @@ export default function Contact() {
 
     if (!formRef.current) return;
 
-    // TODO: Replace with your actual Service ID, Template ID, and Public Key from EmailJS
     emailjs
       .sendForm(
         "service_5nmk9dk",
