@@ -7,7 +7,7 @@ export type Skill = {
     | "Languages"
     | "Database"
     | "Tools";
-  icon?: string; // We can add icon paths or component names here if needed
+  icon?: string;
 };
 
 export const skills: Skill[] = [
