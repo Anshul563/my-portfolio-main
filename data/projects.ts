@@ -11,29 +11,29 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: "1",
-    title: "Personal Portfolio",
+    title: "FireGround",
     description:
-      "A premium personal portfolio website showcasing my skills and projects. Built with Next.js, Tailwind CSS, and Framer Motion for smooth animations and a glassmorphism aesthetic.",
-    tags: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
-    link: "https://anshulll.in",
-    github: "https://github.com/Anshul563/my-portfolio-main",
+      "An E-sports tournament platform built for competitive gaming communities. Features live brackets, team management, real-time match tracking, and automated tournament scheduling.",
+    tags: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind"],
+    link: "#",
+    github: "https://github.com/Anshul563",
   },
   {
     id: "2",
-    title: "Orbit",
+    title: "PDF Tools",
     description:
-      "College creates a unique environment where thousands of talented people live in the same place, yet we still pay strangers online for help. I wanted to build a digital ecosystem that unlocks the latent value on campus.",
-    tags: ["React", "Next.js", "Tailwind CSS", "PostgreSQL"],
-    link: "https://orbit-six-rosy.vercel.app/",
-    github: "https://github.com/Anshul563/orbit",
+      "An online PDF utility platform offering merge, split, compress, and convert functionality. Built with a focus on speed, privacy (all processing is client-side), and clean UX.",
+    tags: ["React", "TypeScript", "Tailwind", "WebAssembly"],
+    link: "#",
+    github: "https://github.com/Anshul563",
   },
   {
     id: "3",
-    title: "Donezo - Team Task & Sprint Manager",
+    title: "Freelance Marketplace",
     description:
-      "Donezo, a sprint management tool designed for high-performance teams. Beyond just a task list I wanted to solve the complexity of real-time collaboration and secure data isolation.",
-    tags: ["Next JS", "Tailwind CSS", "PostgreSQL", "TypeScript"],
-    link: "https://donezo-app-theta.vercel.app/",
-    github: "https://github.com/Anshul563/donezo-app",
+      "A full-stack job marketplace connecting freelancers with clients. Includes user profiles, job posting, bidding system, escrow payments, and review management.",
+    tags: ["Next.js", "Node.js", "MongoDB", "Stripe"],
+    link: "#",
+    github: "https://github.com/Anshul563",
   },
 ];

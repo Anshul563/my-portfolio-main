@@ -1,24 +1,25 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
-import { Background } from "@/components/Background";
 import { Clarity } from "@/components/Clarity";
 import { Analytics } from "@vercel/analytics/next";
+import Grainient from "@/components/Grainient";
+import Navbar from "@/components/Navbar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
+  variable: "--font-heading",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
   subsets: ["latin"],
+  variable: "--font-body",
 });
 
 export const metadata: Metadata = {
-  title: "Anshul Shakya | Full Stack Developer",
+  title: "Anshul Shakya | Full Stack Web Developer",
   description:
-    "Personal portfolio of Anshul Shakya, a Full Stack Developer and BCA student.",
+    "Full Stack Web Developer specializing in modern, fast, and high-converting websites. Available for freelance projects. React, Next.js, Firebase, Node.js.",
 };
 
 export default function RootLayout({
@@ -29,10 +30,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen text-gray-100 selection:bg-purple-500/30 selection:text-white`}
+        className={`${spaceGrotesk.variable} ${inter.variable} antialiased min-h-screen bg-black text-gray-100 selection:bg-neon-purple/30 selection:text-white`}
       >
         <Clarity />
-        <Background />
+        <Navbar />
+        <Grainient color1="#0a0a0a" color2="#1a0533" color3="#0a0a0f" />
         <Analytics />
         {children}
       </body>
