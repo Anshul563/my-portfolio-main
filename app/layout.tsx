@@ -19,7 +19,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Anshul Shakya | Full Stack Web Developer",
   description:
-    "Full Stack Web Developer specializing in modern, fast, and high-converting websites. Available for freelance projects. React, Next.js, Firebase, Node.js.",
+    "Freelance web developer building modern, conversion-focused websites that help businesses attract more leads, build trust, and increase sales. Available for freelance projects.",
 };
 
 export default function RootLayout({
