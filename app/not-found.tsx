@@ -6,21 +6,28 @@ import { ArrowLeft } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <main className="relative z-10 min-h-screen flex items-center justify-center pt-20 pb-20">
-      <div className="absolute top-1/3 left-1/4 w-125 h-125 bg-neon-purple/10 rounded-full blur-[150px] -z-10" />
-      <div className="absolute bottom-1/3 right-1/4 w-100 h-100 bg-neon-blue/10 rounded-full blur-[120px] -z-10" />
+    <main className="relative z-10 min-h-screen flex items-center justify-center pt-24 pb-24 px-6">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage: "radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)",
+          backgroundSize: "26px 26px",
+        }}
+      />
 
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="max-w-md mx-auto px-6 text-center"
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="relative max-w-md mx-auto text-center"
       >
         <motion.p
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-[120px] sm:text-[160px] font-heading font-bold leading-none bg-linear-to-r from-neon-blue via-neon-purple to-neon-pink bg-clip-text text-transparent"
+          className="font-heading text-[100px] sm:text-[140px] font-bold leading-none text-[#F5F5F5]"
+          style={{ textShadow: "0 0 24px rgba(255,255,255,0.12)" }}
         >
           404
         </motion.p>
@@ -28,21 +35,21 @@ export default function NotFound() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.25 }}
-          className="glass-panel rounded-2xl p-8 -mt-6 relative"
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-6"
         >
-          <h1 className="text-xl font-heading font-bold text-white mb-2">
+          <h1 className="font-heading text-xl font-bold text-white">
             Page Not Found
           </h1>
-          <p className="text-sm text-gray-400 leading-relaxed mb-6">
+          <p className="mt-3 text-sm text-[#A0A0A0] leading-relaxed">
             Looks like this page doesn&apos;t exist or was moved. Let&apos;s get
             you back on track.
           </p>
           <Link
             href="/"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-linear-to-r from-neon-purple to-purple-600 text-white font-semibold text-sm hover:shadow-[0_0_30px_rgba(188,19,254,0.4)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition-colors hover:bg-[#e5e5e5]"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft className="h-4 w-4" aria-hidden="true" />
             Back to Home
           </Link>
         </motion.div>

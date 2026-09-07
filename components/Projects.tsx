@@ -2,8 +2,9 @@
 
 import { motion } from "framer-motion";
 import { projects } from "@/data/projects";
-import { Github, ExternalLink, ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import SectionLabel from "@/components/ui/SectionLabel";
 
 interface ProjectsProps {
   limit?: number;
@@ -18,7 +19,7 @@ const containerVariants = {
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
@@ -26,109 +27,94 @@ export default function Projects({ limit }: ProjectsProps) {
   const displayedProjects = limit ? projects.slice(0, limit) : projects;
 
   return (
-    <section id="projects" className="relative py-24 overflow-hidden">
-      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-neon-blue/5 rounded-full blur-[120px] -z-10" />
-      <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-neon-purple/5 rounded-full blur-[100px] -z-10" />
+    <section id="projects" className="relative py-28">
+      <div className="border-t border-[rgba(255,255,255,0.1)]">
+        <div className="max-w-7xl mx-auto px-6 py-28">
+          <div className="mb-16 flex flex-col sm:flex-row sm:items-end gap-6 sm:justify-between">
+            <SectionLabel index="03" label="Featured Projects" />
+            {limit && (
+              <Link
+                href="/projects"
+                className="group inline-flex items-center gap-2 text-sm text-[#A0A0A0] transition-colors hover:text-[#F5F5F5]"
+              >
+                View All Projects
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+              </Link>
+            )}
+          </div>
 
-      <div className="max-w-7xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 font-heading">
-            <span className="text-gradient">Featured Work</span>
-          </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            A selection of projects I&apos;ve built — each focused on
-            performance, design, and real-world impact.
-          </p>
-        </motion.div>
-
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {displayedProjects.map((project) => (
-            <motion.div
-              key={project.id}
-              variants={cardVariants}
-              className="group relative glass-panel rounded-2xl p-6 border border-white/5 hover:border-neon-purple/30 transition-all duration-500 flex flex-col"
-            >
-              <div className="h-40 rounded-xl bg-gradient-to-br from-neon-blue/10 via-neon-purple/10 to-neon-pink/10 mb-6 flex items-center justify-center border border-white/5 group-hover:border-neon-purple/20 transition-colors overflow-hidden">
-                <div className="text-center p-4">
-                  <p className="text-lg font-bold text-white/80 group-hover:text-neon-purple transition-colors">
-                    {project.title}
-                  </p>
-                  <p className="text-xs text-gray-500 mt-1">Live Preview</p>
-                </div>
-              </div>
-
-              <h3 className="text-xl font-bold mb-3 text-white group-hover:text-neon-blue transition-colors font-heading">
-                {project.title}
-              </h3>
-              <p className="text-sm text-gray-400 mb-6 leading-relaxed grow font-sans">
-                {project.description}
-              </p>
-
-              <div className="flex flex-wrap gap-2 mb-6">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-[11px] font-medium px-2.5 py-1 bg-white/5 text-gray-300 rounded-full border border-white/10"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex gap-3 mt-auto">
-                {project.github && (
-                  <Link
-                    href={project.github}
-                    target="_blank"
-                    className="flex items-center gap-2 px-4 py-2 text-xs font-semibold rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-neon-blue/50 transition-all"
-                  >
-                    <Github size={14} />
-                    GitHub
-                  </Link>
-                )}
-                {project.link && (
-                  <Link
-                    href={project.link}
-                    target="_blank"
-                    className="flex items-center gap-2 px-4 py-2 text-xs font-semibold rounded-full bg-neon-purple/10 text-neon-purple border border-neon-purple/20 hover:bg-neon-purple/20 transition-all"
-                  >
-                    <ExternalLink size={14} />
-                    Live
-                  </Link>
-                )}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {limit && (
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            className="mt-12 text-center"
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-5"
           >
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-neon-blue/50 transition-all text-sm font-semibold group"
-            >
-              See All Projects
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
+            {displayedProjects.map((project) => (
+              <motion.article
+                key={project.id}
+                variants={cardVariants}
+                className="group relative flex flex-col overflow-hidden rounded-2xl border border-[rgba(255,255,255,0.12)] bg-[#050505] transition-colors duration-300 hover:border-[rgba(255,255,255,0.35)]"
+              >
+                <div className="relative aspect-[16/9] overflow-hidden border-b border-[rgba(255,255,255,0.08)]">
+                  <div
+                    className="absolute inset-0 flex items-center justify-center transition-transform duration-500 group-hover:scale-105"
+                    style={{
+                      backgroundImage:
+                        "radial-gradient(rgba(255,255,255,0.12) 1px, transparent 1px)",
+                      backgroundSize: "20px 20px",
+                    }}
+                  >
+                    <span className="font-heading text-lg font-bold tracking-wide text-[#A0A0A0] transition-colors group-hover:text-white">
+                      {project.title}
+                    </span>
+                  </div>
+                  <span aria-hidden="true" className="absolute left-3 top-3 font-mono text-[9px] uppercase tracking-[0.2em] text-[#666]">
+                    {String(project.id).padStart(2, "0")}
+                  </span>
+                </div>
+
+                <div className="flex flex-col grow p-6">
+                  <div className="flex items-start justify-between gap-4">
+                    <h3 className="font-heading text-xl font-bold text-[#F5F5F5]">
+                      {project.title}
+                    </h3>
+                    <ArrowUpRight
+                      className="h-5 w-5 shrink-0 text-[#666] transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white"
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <p className="mt-3 text-sm leading-relaxed text-[#A0A0A0] grow">
+                    {project.description}
+                  </p>
+
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full border border-[rgba(255,255,255,0.12)] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.08em] text-[#666] transition-colors group-hover:border-[rgba(255,255,255,0.25)] group-hover:text-[#A0A0A0]"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.article>
+            ))}
           </motion.div>
-        )}
+
+          {!limit && (
+            <div className="mt-12">
+              <Link
+                href="/"
+                className="group inline-flex items-center gap-2 text-sm text-[#A0A0A0] transition-colors hover:text-white"
+              >
+                <ArrowRight className="h-4 w-4 rotate-180 transition-transform group-hover:-translate-x-1" aria-hidden="true" />
+                Back to Home
+              </Link>
+            </div>
+          )}
+        </div>
       </div>
     </section>
   );

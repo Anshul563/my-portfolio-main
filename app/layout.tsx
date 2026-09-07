@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Clarity } from "@/components/Clarity";
 import { Analytics } from "@vercel/analytics/next";
-import Grainient from "@/components/Grainient";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -16,10 +16,44 @@ const inter = Inter({
   variable: "--font-body",
 });
 
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+});
+
 export const metadata: Metadata = {
-  title: "Anshul Shakya | Full Stack Web Developer",
+  metadataBase: new URL("https://anshulshakya.dev"),
+  title: "Anshul Shakya | Full Stack Developer",
   description:
-    "Freelance web developer building modern, conversion-focused websites that help businesses attract more leads, build trust, and increase sales. Available for freelance projects.",
+    "Full Stack Developer turning ideas into beautiful, functional and scalable web experiences. Building with React, Next.js, Node.js, and modern tooling.",
+  keywords: [
+    "Anshul Shakya",
+    "Full Stack Developer",
+    "Web Developer",
+    "React",
+    "Next.js",
+    "Node.js",
+    "Portfolio",
+  ],
+  openGraph: {
+    title: "Anshul Shakya | Full Stack Developer",
+    description:
+      "Full Stack Developer turning ideas into beautiful, functional and scalable web experiences.",
+    type: "website",
+    locale: "en_US",
+    url: "https://anshulshakya.dev",
+    siteName: "Anshul Shakya",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Anshul Shakya | Full Stack Developer",
+    description:
+      "Full Stack Developer turning ideas into beautiful, functional and scalable web experiences.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -30,13 +64,16 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${spaceGrotesk.variable} ${inter.variable} antialiased min-h-screen bg-black text-gray-100 selection:bg-neon-purple/30 selection:text-white`}
+        className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased min-h-screen bg-[#050505] text-[#F5F5F5]`}
+        style={{
+          fontFamily: "var(--font-body), ui-sans-serif, system-ui, sans-serif",
+        }}
       >
         <Clarity />
         <Navbar />
-        <Grainient color1="#0a0a0a" color2="#1a0533" color3="#0a0a0f" />
+        <main className="relative z-10">{children}</main>
+        <Footer />
         <Analytics />
-        {children}
       </body>
     </html>
   );

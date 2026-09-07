@@ -1,15 +1,17 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Mail, MapPin, Send, Loader2, CheckCircle2, XCircle, MessageCircle } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowRight, Mail, Send, Loader2, CheckCircle2, XCircle } from "lucide-react";
 import { useRef, useState, FormEvent } from "react";
 import emailjs from "@emailjs/browser";
+import SectionLabel from "@/components/ui/SectionLabel";
 
 export default function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
+  const reduceMotion = useReducedMotion();
 
   const sendEmail = (e: FormEvent) => {
     e.preventDefault();
@@ -40,194 +42,168 @@ export default function Contact() {
       );
   };
 
+  const goodThings = ["GOOD", "THINGS", "AHEAD"];
+
   return (
-    <section id="contact" className="relative py-24 overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-neon-blue/5 rounded-full blur-[150px] -z-10" />
+    <section id="contact" className="relative py-28">
+      <div className="border-t border-[rgba(255,255,255,0.1)]">
+        <div className="max-w-7xl mx-auto px-6 py-28">
+          <div className="grid lg:grid-cols-12 gap-16 lg:gap-8 items-start">
+            {/* LEFT label */}
+            <div className="lg:col-span-3 pt-1">
+              <SectionLabel index="05" label="Let&apos;s Work Together" />
+            </div>
 
-      <div className="max-w-7xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 font-heading">
-            Have a Project in{" "}
-            <span className="text-gradient">Mind?</span>
-          </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            Let&apos;s build something amazing together. Tell me about your
-            project and I&apos;ll get back to you within 24 hours.
-          </p>
-        </motion.div>
+            {/* CENTER */}
+            <div className="lg:col-span-5">
+              <h2 className="font-heading text-3xl sm:text-4xl font-bold leading-tight text-[#F5F5F5]">
+                Let&apos;s Build Something Together
+              </h2>
+              <p className="mt-5 text-[#A0A0A0] leading-relaxed max-w-md">
+                Have a project in mind or just want to say hi? I&apos;d love to
+                hear from you.
+              </p>
 
-        <div className="grid lg:grid-cols-5 gap-10 max-w-5xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-2 space-y-6"
-          >
-            <div className="glass-panel rounded-2xl p-6 border border-white/5">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center shrink-0">
-                  <MessageCircle className="w-5 h-5 text-green-400" />
-                </div>
+              <div className="mt-9 flex flex-col sm:flex-row gap-4">
+                <a
+                  href="mailto:anshulshakya18168@gmail.com"
+                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-black transition-colors hover:bg-[#e5e5e5]"
+                >
+                  Get In Touch
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                </a>
+                <a
+                  href="mailto:anshulshakya18168@gmail.com"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-[rgba(255,255,255,0.25)] px-7 py-3.5 text-sm font-semibold text-[#F5F5F5] transition-colors hover:border-white hover:bg-white/5"
+                >
+                  <Mail className="h-4 w-4" aria-hidden="true" />
+                  Email Me
+                </a>
+              </div>
+            </div>
+
+            {/* RIGHT dot-matrix */}
+            <motion.div
+              className="lg:col-span-4 flex flex-col lg:items-end gap-2"
+              aria-hidden="true"
+            >
+              {goodThings.map((word, i) => (
+                <motion.span
+                  key={word}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  animate={reduceMotion ? {} : { opacity: [0.7, 1, 0.7] }}
+                  className="font-heading text-3xl sm:text-4xl font-bold leading-none text-[#666]"
+                  style={{ textShadow: "0 0 20px rgba(255,255,255,0.15)" }}
+                >
+                  {word}
+                </motion.span>
+              ))}
+              <span className="mt-4 h-px w-24 bg-[rgba(255,255,255,0.25)] lg:self-end" />
+            </motion.div>
+          </div>
+
+          {/* FORM */}
+          <div className="mt-20 max-w-3xl">
+            <form
+              ref={formRef}
+              onSubmit={sendEmail}
+              className="space-y-5"
+            >
+              <div className="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <p className="text-sm font-semibold text-white mb-1 font-heading">
-                    WhatsApp
-                  </p>
-                  <a
-                    href="https://wa.me/918439320563"
-                    target="_blank"
-                    className="text-sm text-gray-400 hover:text-green-400 transition-colors font-sans"
+                  <label
+                    htmlFor="name"
+                    className="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-[#666]"
                   >
-                    Chat on WhatsApp
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div className="glass-panel rounded-2xl p-6 border border-white/5">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center shrink-0">
-                  <Mail className="w-5 h-5 text-blue-400" />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-white mb-1 font-heading">Email</p>
-                  <a
-                    href="mailto:anshulshakya18168@gmail.com"
-                    className="text-sm text-gray-400 hover:text-blue-400 transition-colors font-sans"
-                  >
-                    anshulshakya18168@gmail.com
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div className="glass-panel rounded-2xl p-6 border border-white/5">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center shrink-0">
-                  <MapPin className="w-5 h-5 text-purple-400" />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-white mb-1 font-heading">
-                    Location
-                  </p>
-                  <p className="text-sm text-gray-400 font-sans">India</p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-3"
-          >
-            <div className="glass-panel rounded-2xl p-8 border border-white/5">
-              <form
-                ref={formRef}
-                onSubmit={sendEmail}
-                className="space-y-5"
-              >
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-gray-400 mb-2 font-sans"
-                    >
-                      Your Name
-                    </label>
-                    <input
-                      type="text"
-                      name="user_name"
-                      id="name"
-                      required
-                      placeholder="John Doe"
-                      className="w-full bg-black/30 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-neon-purple/50 transition-colors font-sans"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-gray-400 mb-2 font-sans"
-                    >
-                      Your Email
-                    </label>
-                    <input
-                      type="email"
-                      name="user_email"
-                      id="email"
-                      required
-                      placeholder="john@example.com"
-                      className="w-full bg-black/30 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-neon-purple/50 transition-colors font-sans"
-                    />
-                  </div>
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    name="user_name"
+                    id="name"
+                    required
+                    placeholder="Jane Doe"
+                    className="w-full rounded-xl border border-[rgba(255,255,255,0.15)] bg-transparent px-4 py-3 text-sm text-[#F5F5F5] placeholder:text-[#555] focus:border-[rgba(255,255,255,0.45)] focus:outline-none transition-colors"
+                  />
                 </div>
                 <div>
                   <label
-                    htmlFor="project"
-                    className="block text-sm font-medium text-gray-400 mb-2 font-sans"
+                    htmlFor="email"
+                    className="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-[#666]"
                   >
-                    Project Details
+                    Your Email
                   </label>
-                  <textarea
-                    name="message"
-                    id="project"
-                    rows={5}
+                  <input
+                    type="email"
+                    name="user_email"
+                    id="email"
                     required
-                    placeholder="Tell me about your project, goals, and timeline..."
-                    className="w-full bg-black/30 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-neon-purple/50 transition-colors resize-none font-sans"
+                    placeholder="jane@example.com"
+                    className="w-full rounded-xl border border-[rgba(255,255,255,0.15)] bg-transparent px-4 py-3 text-sm text-[#F5F5F5] placeholder:text-[#555] focus:border-[rgba(255,255,255,0.45)] focus:outline-none transition-colors"
                   />
                 </div>
-
-                <motion.button
-                  type="submit"
-                  disabled={loading}
-                  whileHover={{ scale: 1.01 }}
-                  whileTap={{ scale: 0.99 }}
-                  className="w-full py-4 rounded-xl bg-neon-purple text-white font-semibold hover:shadow-[0_0_30px_rgba(188,19,254,0.4)] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 font-sans"
+              </div>
+              <div>
+                <label
+                  htmlFor="project"
+                  className="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-[#666]"
                 >
-                  {loading ? (
-                    <>
-                      <Loader2 className="w-5 h-5 animate-spin" />
-                      Sending...
-                    </>
-                  ) : success ? (
-                    <>
-                      <CheckCircle2 className="w-5 h-5 text-green-300" />
-                      Message Sent!
-                    </>
-                  ) : error ? (
-                    <>
-                      <XCircle className="w-5 h-5 text-red-400" />
-                      Failed to Send
-                    </>
-                  ) : (
-                    <>
-                      Send Message <Send className="w-4 h-4" />
-                    </>
-                  )}
-                </motion.button>
+                  Project Details
+                </label>
+                <textarea
+                  name="message"
+                  id="project"
+                  rows={5}
+                  required
+                  placeholder="Tell me about your project, goals, and timeline..."
+                  className="w-full resize-none rounded-xl border border-[rgba(255,255,255,0.15)] bg-transparent px-4 py-3 text-sm text-[#F5F5F5] placeholder:text-[#555] focus:border-[rgba(255,255,255,0.45)] focus:outline-none transition-colors"
+                />
+              </div>
 
-                {success && (
-                  <p className="text-green-400 text-sm text-center">
-                    Thanks for reaching out! I&apos;ll get back to you soon.
-                  </p>
+              <motion.button
+                type="submit"
+                disabled={loading}
+                whileHover={reduceMotion ? {} : { scale: 1.01 }}
+                whileTap={reduceMotion ? {} : { scale: 0.99 }}
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-black transition-colors hover:bg-[#e5e5e5] disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {loading ? (
+                  <>
+                    <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
+                    Sending...
+                  </>
+                ) : success ? (
+                  <>
+                    <CheckCircle2 className="h-4 w-4" aria-hidden="true" />
+                    Message Sent!
+                  </>
+                ) : error ? (
+                  <>
+                    <XCircle className="h-4 w-4" aria-hidden="true" />
+                    Failed to Send
+                  </>
+                ) : (
+                  <>
+                    Send Message <Send className="h-4 w-4" aria-hidden="true" />
+                  </>
                 )}
-                {error && (
-                  <p className="text-red-400 text-sm text-center">
-                    Something went wrong. Please email me directly.
-                  </p>
-                )}
-              </form>
-            </div>
-          </motion.div>
+              </motion.button>
+
+              {success && (
+                <p className="text-sm text-[#A0A0A0]">
+                  Thanks for reaching out! I&apos;ll get back to you soon.
+                </p>
+              )}
+              {error && (
+                <p className="text-sm text-[#A0A0A0]">
+                  Something went wrong. Please email me directly.
+                </p>
+              )}
+            </form>
+          </div>
         </div>
       </div>
     </section>
