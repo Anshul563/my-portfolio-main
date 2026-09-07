@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, ArrowDown } from "lucide-react";
 import DottedSphere from "@/components/ui/DottedSphere";
+import DottedBackground from "@/components/ui/DottedBackground";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -27,6 +28,7 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden"
     >
+      <DottedBackground />
       <div className="max-w-7xl mx-auto px-6 w-full">
         <motion.div
           variants={containerVariants}

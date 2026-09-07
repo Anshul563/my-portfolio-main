@@ -5,6 +5,7 @@ import { ArrowRight, Mail, Send, Loader2, CheckCircle2, XCircle } from "lucide-r
 import { useRef, useState, FormEvent } from "react";
 import emailjs from "@emailjs/browser";
 import SectionLabel from "@/components/ui/SectionLabel";
+import DotMatrixHeading from "@/components/ui/DotMatrixHeading";
 
 export default function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -41,8 +42,6 @@ export default function Contact() {
         },
       );
   };
-
-  const goodThings = ["GOOD", "THINGS", "AHEAD"];
 
   return (
     <section id="contact" className="relative py-28">
@@ -85,22 +84,19 @@ export default function Contact() {
             {/* RIGHT dot-matrix */}
             <motion.div
               className="lg:col-span-4 flex flex-col lg:items-end gap-2"
-              aria-hidden="true"
+              aria-label="Good things ahead"
             >
-              {goodThings.map((word, i) => (
-                <motion.span
-                  key={word}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  animate={reduceMotion ? {} : { opacity: [0.7, 1, 0.7] }}
-                  className="font-heading text-3xl sm:text-4xl font-bold leading-none text-[#666]"
-                  style={{ textShadow: "0 0 20px rgba(255,255,255,0.15)" }}
-                >
-                  {word}
-                </motion.span>
-              ))}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="text-right"
+              >
+                <DotMatrixHeading text="GOOD" className="block text-3xl sm:text-4xl leading-tight" />
+                <DotMatrixHeading text="THINGS" className="block text-3xl sm:text-4xl leading-tight" />
+                <DotMatrixHeading text="AHEAD" className="block text-3xl sm:text-4xl leading-tight text-white" />
+              </motion.div>
               <span className="mt-4 h-px w-24 bg-[rgba(255,255,255,0.25)] lg:self-end" />
             </motion.div>
           </div>
